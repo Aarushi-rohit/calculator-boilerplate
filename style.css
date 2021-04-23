@@ -1,66 +1,53 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 20vh 0;
+    text-align: center;
+    background-image: url("https://i1.faceprep.in/bmi-background.png");
+    background-size: cover;
+    font-family: 'Open Sans', sans-serif;
 }
 
-.container {
-    width: 40vh;
-    padding-bottom: 15px;
-    background-color: black;
-    box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.5);
+img {
+margin-top: 5vh;
+width: 20%;
 }
 
-#numdisplay {
-   height: 60px;
-   font-size: 2rem;
-   padding: 10px;
-    background-color: #ff8c00;
-    color: white;
-    text-align: right;
+#text {
+    margin: 3vh 32vw;
 }
 
-.row {
-    display: flex;
-    justify-content: space-between;
-}
-
-input {
-    background-color: black;
-    width: 80px;
-    height: 60px;
+#height, #weight, #age {
+    margin: 0 0 3vh 0;
+    width: 300px;
+    height: 50px;
+    text-align: center;
     border: none;
-    outline: none;
-    font-size: 1.5rem;
-    color: grey;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-    input:hover {
-        cursor: pointer;
-        background-color: #191b1d;
-        color: white;
-    }
 
-.reset {
-    height: 60px;
-    width: 40vh;
-    margin: auto;
+#submit {
+    border: none;
+    background-color: #5F27CD;
+    color: white;
+    width: 300px;
+    height: 50px;
+    border-radius: 30px;
+    font-size: 24px;
+    font-weight: 600;
 }
 
-h3 {
-    margin: 5vh 0;
+
+h1 {
+    margin: 60px 0 0 0;
 }
 
 a {
-    color:  #ff8c00;
+    font-size: 14px;
 }
