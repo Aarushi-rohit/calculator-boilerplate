@@ -1,2 +1,2 @@
-# bmi-calculator-boilerplate
-Boilerplate HTML CSS for BMI Calculator  Application
+# calculator-boilerplate
+Hey Junior !!  We got you  sometime to focus on the logic , here is the HTML , CSS code.
