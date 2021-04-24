@@ -1,62 +1,44 @@
-var age = document.getElementById("age");
-var height = document.getElementById("height");
-var weight = document.getElementById("weight");
-var form = document.getElementById("form");
+<html>
+<head>
+    <title>Calculator</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js"></script>
+</head>
 
-const validateForm=()=>{
-    if (age.value=="" || height.value=="" || weight.value==""){
-        alert("All fields are required!");
-        document.getElementById("submit").removeEventListener("click",countBmi);
-    }else{
-        countBmi();   
-    }
-}
-
-document.getElementById("submit").addEventListener("click",validateForm);
-
-const countBmi=()=>{
-    var p=[age.value, height.value, weight.value];
-    form.reset();
-
-    var bmi = Number(p[2])/(Number(p[1])/100*Number(p[1])/100);
-
-    var result='';
-
-    if (bmi<18.5){
-        result='Oops! You are underweight. You gotta addpounds healthfully 😅';
-    }else if (18.5<=bmi&&bmi<=24.9){
-        result='Yay! You are healthy. You can have a pizza or two 😉';
-    }else if (25<=bmi&&bmi<=29.9){
-        result='You gotta cut down on your unhealthy stuff & you will be perfectly healthy 😀';
-    }else if (30<=bmi&&bmi<=34.9){
-        result='Oops! It is high time you train your brain to hate junk food 😨';
-    }else if (30<=bmi){
-        result='Obesity alert! No more junk say❌';
-    }
-    
-    var h1=document.createElement("h1");
-    var pr=document.createElement("p");
-
-    var t =document.createTextNode(result);
-    
-    var b=document.createTextNode('BMI');
-
-    var r = document.createTextNode(parseFloat(bmi).toFixed(2));
-
-    h1.appendChild(b);
-
-    h1.appendChild(r);
-
-    pr.appendChild(t);
-
-    document.body.appendChild(h1);
-
-    document.body.appendChild(pr);
-    
-    document.getElementById("submit").removeEventListener("click", countbmi);  
-    
-    document.getElementById("submit").removeEventListener("click", validateForm);
-
-}
-
-document.getElementById("submit").addEventListener("click", countbmi);
+<body>
+    <div class="container">
+            <div id="numdisplay"><span>0</span></div>
+        <div class="keypad">
+            <div class="row">
+                <input type="button" name="reset" value="C" onclick="reset(this.name)" />
+            </div>
+            <div class="row">
+                <input type="button" name="7" value="7" onclick="perform(this.name)" />
+                <input type="button" name="8" value="8" onclick="perform(this.name)" />
+                <input type="button" name="9" value="9" onclick="perform(this.name)" />
+                <input type="button" class="operator" name="+" value="+" onclick="perform(this.name)" />
+            </div>
+            <div class="row">
+                <input type="button" name="4" value="4" onclick="perform(this.name)" />
+                <input type="button" name="5" value="5" onclick="perform(this.name)" />
+                <input type="button" name="6" value="6" onclick="perform(this.name)" />
+                <input type="button" class="operator" name="-" value="-" onclick="perform(this.name)" />
+            </div>
+            <div class="row">
+                <input type="button" name="1" value="1" onclick="perform(this.name)" />
+                <input type="button" name="2" value="2" onclick="perform(this.name)" />
+                <input type="button" name="3" value="3" onclick="perform(this.name)" />
+                <input type="button" class="operator" name="*" value="*" onclick="perform(this.name)" />
+            </div>
+            <div class="row">
+                <input type="button" class="operator" name="." value="." onclick="perform(this.name)" />
+                <input type="button" name="0" value="0" onclick="perform(this.name)" />
+                <input type="button" class="operator" name="=" value="=" onclick="perform(this.name)" />
+                <input type="button" class="operator" name="/" value="/" onclick="perform(this.name)" />
+            </div>
+        </div>
+    </div>
+    <h3> Coded with ❤ by <a href="https://www.progradjunior.org">ProGrad Junior</a></h3>
+</body>
+</html>
