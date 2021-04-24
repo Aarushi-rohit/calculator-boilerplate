@@ -1,44 +1,80 @@
-<html>
-<head>
-    <title>Calculator</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="app.js"></script>
-</head>
+var a="", b="";
+var sign="";
 
-<body>
-    <div class="container">
-            <div id="numdisplay"><span>0</span></div>
-        <div class="keypad">
-            <div class="row">
-                <input type="button" name="reset" value="C" onclick="reset(this.name)" />
-            </div>
-            <div class="row">
-                <input type="button" name="7" value="7" onclick="perform(this.name)" />
-                <input type="button" name="8" value="8" onclick="perform(this.name)" />
-                <input type="button" name="9" value="9" onclick="perform(this.name)" />
-                <input type="button" class="operator" name="+" value="+" onclick="perform(this.name)" />
-            </div>
-            <div class="row">
-                <input type="button" name="4" value="4" onclick="perform(this.name)" />
-                <input type="button" name="5" value="5" onclick="perform(this.name)" />
-                <input type="button" name="6" value="6" onclick="perform(this.name)" />
-                <input type="button" class="operator" name="-" value="-" onclick="perform(this.name)" />
-            </div>
-            <div class="row">
-                <input type="button" name="1" value="1" onclick="perform(this.name)" />
-                <input type="button" name="2" value="2" onclick="perform(this.name)" />
-                <input type="button" name="3" value="3" onclick="perform(this.name)" />
-                <input type="button" class="operator" name="*" value="*" onclick="perform(this.name)" />
-            </div>
-            <div class="row">
-                <input type="button" class="operator" name="." value="." onclick="perform(this.name)" />
-                <input type="button" name="0" value="0" onclick="perform(this.name)" />
-                <input type="button" class="operator" name="=" value="=" onclick="perform(this.name)" />
-                <input type="button" class="operator" name="/" value="/" onclick="perform(this.name)" />
-            </div>
-        </div>
-    </div>
-    <h3> Coded with ❤ by <a href="https://www.progradjunior.org">ProGrad Junior</a></h3>
-</body>
-</html>
+function add(){
+    a=(Number(a)+Number(b))
+    return a;
+}
+
+function sub(){
+    a=(Number(a)-Number(b))
+    return a;
+}
+
+function multiply(){
+    a=(Number(a)*Number(b))
+    return a;
+}
+
+function divide(){
+    a=(Number(a)/Number(b))
+    return a;
+}
+
+function calculate(){
+    var result="";
+    switch (sign){
+        case'+':
+        result=add();
+        break;
+
+        case'-':
+        result=sub();
+        break;
+
+        case'*':
+        result=multiply();
+        break;
+
+        case'/':
+        result=divide();
+        break;
+    }
+
+    document.getElementById('numdisplay').innerHTML=result;
+    b="";
+    sign="";
+}
+
+function perform(m){
+    if(m=='='){
+        if((a!="")&(b!="")){
+            calculate();
+        }
+    }
+    else if ((m=='+')||(m=='-')||(m=='*')||(m=='/')){
+        if((a!="")&&(b=="")){
+            sign=m;
+            document.getElementById('numdisplay').innerHTML=a+sign;
+        }
+        else if ((a!="")&&(b!="")){
+            calculate();
+            sign=m;
+            document.getElementById('numdisplay').innerHTML=a+sign;
+        }
+    }
+    else {
+        if (sign==""){
+            a=a+m;
+            document.getElementById('numdisplay').innerHTML=a;
+        }
+        else{
+            b=b+m;
+            document.getElementById('numdisplay').innerHTML=a+sign+b;
+        }
+    }
+}
+
+function reset(m){
+    location.reload();
+}
